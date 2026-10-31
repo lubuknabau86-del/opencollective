@@ -1,5 +1,10 @@
 # Security Policy
 
+> [!WARNING]
+> Due to the increase in security reports due to generative AI, we're making the following changes to our bounty policy:
+> - We're only accepting up to 2 reports per individual per week. Choose carefully!
+> - We're no longer offering bounties for low and, in some cases, medium severity issues. See the updated "Rewards" section.
+
 We believe that no technology is perfect and that working with skilled security researchers
 is crucial in identifying weaknesses.
 
@@ -8,22 +13,24 @@ to resolve the issue promptly and ensure you are fairly rewarded for your discov
 
 We will investigate legitimate reports and make every effort to quickly resolve any vulnerability.
 To encourage responsible reporting, we will not take legal action against you nor ask law enforcement
-to investigate you providing you comply with the current policy and more generally with the following guideline: Make a good faith effort to
+to investigate you, provided you comply with the current policy and, more generally, with the following guideline: Make a good faith effort to
 avoid privacy violations, destruction of data, and interruption or degradation of our services.
 
 ## Eligibility and Responsible Disclosure
 
-Only those that meet the following eligibility requirements may receive a monetary reward:
+Only those who meet the following eligibility requirements may receive a monetary reward:
 
 - You must be the first reporter of a vulnerability.
 - The vulnerability must be a qualifying vulnerability.
 - Any vulnerability found must be reported no later than 72 hours after discovery.
-- You must send a clear textual description of the report along with steps to reproduce the issue, include attachments such as screenshots or proof of concept code as necessary.
+- You must send a clear textual description of the report along with steps to reproduce the issue, including attachments such as screenshots or proof of concept code as necessary.
 - You must avoid tests that could cause degradation or interruption of our service (refrain from using automated tools, and limit yourself about requests per second).
 - You must not leak, manipulate, or destroy any user data.
-- You must not be a former or current employee of Open Collective or one of its contractor.
+- You must not be a former or current employee of Open Collective or one of its contractors.
 - You must wait for the issue to be fully fixed before exposing it publicly.
 - There must be proof that, given realistic processing power and time, an exploit is possible.
+- When using AI, you must manually review that the report you're submitting is correct. Repeated offense of this rule will lock you out of our bounty program.
+- Each reporter can only submit up to 3 reports a week. Make sure to report the most severe vulnerabilities first.
 
 ## Scope
 
@@ -45,13 +52,26 @@ In case you really need to test on a live environment, we provide staging server
 - Rest: https://rest-staging.opencollective.com
 - Images: https://images-staging.opencollective.com
 
+### Out-of-scope features
+
+- Private organizations: currently being tested internally, we will not offer bounties until the feature is fully released and tested on our side.
+- OpenSearch: only available to priviledged users for now.
+
 ## Contact
 
 - Mail: security@opencollective.com
 - Preferred languages: English
 - If your issue is critical, you can use the PGP key below to encrypt your message
+- Do to the rise of SPAM AI-generated reports, you MUST include the following sentence in your message:
 
-```
+> I have read and accepted the Security Policy of Open Collective.
+
+Non-compliant reports will be ignored.
+
+<details>
+  <summary>PGP key</summary>
+
+  ```
 -----BEGIN PGP PUBLIC KEY BLOCK-----
 
 mQGNBF1uYTMBDACtKuBUOuyeZ98L9F4C3TQRyOhW2AeeFGiu5ViXP0zWUiJPz5DU
@@ -95,15 +115,24 @@ wf+ESlENix2p4LJ8BZLU/D/eaEugQL8LXW+KZVDXyCMwlCA4
 -----END PGP PUBLIC KEY BLOCK-----
 ```
 
+</details>
+
+
 ## Rewards
 
-| Project       | Type            | Security requirement | Low  | Medium | High  | Critical |
-| ------------- | --------------- | -------------------- | ---- | ------ | ----- | -------- |
-| API           | API             | +++                  | \$100 | \$200  | \$300 | \$600    |
-| Frontend      | Web Application | +++                  | \$100 | \$200  | \$300 | \$600    |
-| PDF service   | API             | ++                   | \$50 | \$100   | \$200 | \$300    |
-| Images        | API             | ++                   | \$50 | \$100   | \$200 | \$300    |
-| REST          | API             | ++                   | \$50 | \$100   | \$200  | \$300    |
+⚠️ As per the warning above, we are pausing our bounty program from **July 1st to August 31th 2026**. Issues reported during this period will not be replied to, and will not be elligible for bounties.
+
+| Project     | Type            | Security requirement | Low   | Medium | High  | Critical |
+| ----------- | --------------- | -------------------- | ----- | ------ | ----- | -------- |
+| API         | API             | +++                  | \$0  | \$100   | \$600 | \$1200   |
+| Frontend    | Web Application | +++                  | \$0  | \$100   | \$600 | \$1200   |
+| PDF service | API             | ++                   | \$0  | \$0     | \$300 | \$600    |
+| Images      | API             | ++                   | \$0  | \$0     | \$300 | \$600    |
+| REST        | API             | ++                   | \$0  | \$0     | \$300 | \$600    |
+
+Issues that we categorize as "Minimal" severity are not elligible for bounties. 
+
+Note: we are not able to pay bounties to people based in countries sanctioned by the United States, or countries where US sanctions are so widespread that our payment processors no longer serve them.
 
 ## Qualifying vulnerabilities
 
@@ -150,6 +179,7 @@ wf+ESlENix2p4LJ8BZLU/D/eaEugQL8LXW+KZVDXyCMwlCA4
 - Invalid or missing SPF (Sender Policy Framework) records (Incomplete or missing SPF/DKIM/DMARC)
 - Any issues regarding single session features/management
 - RTLO and related issues
+- Missing OAuth or personal token scope checks on **GraphQL V1** (`/graphql/v1`): token-based clients are not allowed to use it by default.
 
 ## Process
 
@@ -166,13 +196,6 @@ wf+ESlENix2p4LJ8BZLU/D/eaEugQL8LXW+KZVDXyCMwlCA4
 ## How do we calculate the severity score
 
 Our analysis is always based on worst case exploitation of the vulnerability, as is the reward we pay. We will rely on CVSS3 as well as internal criteria to score the vulnerabilities.
-
-CVSS3 score:
-
-- From 1 to 4 ==> Low
-- From 4 to 7 ==> Medium
-- From 7 to 9 ==> High
-- From 9 to 10 ==> Critical
 
 Things that we take into account to adjust the score for vulnerabilities:
 

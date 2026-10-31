@@ -2,19 +2,25 @@
 
 Please raise all issues in this repo, which serves as an overview for the project.
 
-[![Crowdin](https://badges.crowdin.net/opencollective/localized.svg)](https://crowdin.com/project/opencollective)
+[![Discord](https://discordapp.com/api/guilds/1241017531318276158/widget.png)](https://discord.opencollective.com)
 
 ## What is OpenCollective?
 
 Open Collective is an online funding platform for open and transparent communities. We provide the tools to raise money and share your finances in full transparency.
 
+## Looking for the source code?
+
+Our codebase is split into several repositories:
+
+- [API](https://github.com/opencollective/opencollective-api) - Our main GraphQL APIs
+- [Frontend](https://github.com/opencollective/opencollective-frontend) - The main website
+- [PDF](https://github.com/opencollective/opencollective-pdf) - PDF export service
+- [Rest](https://github.com/opencollective/opencollective-rest) - REST API service
+- [Images](https://github.com/opencollective/opencollective-images) - Image processing service
+
 ## Documentation
 
-Please see our help docs for all info, including user guide, how to contribute, and developer docs: https://docs.opencollective.com
-
-## Bounties
-
-Get paid to contribute to Open Source! The Open Collective engineering team is small and we're always looking for new contributors to our Open Source codebases. Our Bounty program is an opportunity to solve issues that could be neglected otherwise. Contributors who fix these issues will be rewarded financially. Please see our docs for more information: https://docs.opencollective.com/help/contributing/development/bounties
+Please see our help docs for all info, including user guide, how to contribute, and developer docs: https://documentation.opencollective.com
 
 ## Issues
 
@@ -26,4 +32,4 @@ This repository serves as [our main issue tracker](https://github.com/opencollec
 
 ## Questions?
 
-Join [our Slack](https://slack.opencollective.com) or [email support](mailto:support@opencollective.com).
+Join [our Discord](https://discord.opencollective.com) or [email support](mailto:support@opencollective.com).
